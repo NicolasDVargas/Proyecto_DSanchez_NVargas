@@ -1,0 +1,15 @@
+<form (ngSubmit)="buscar(Cliente.nombre, Cliente.contra)">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="txt-Nombre" id="txtNombre" placeholder="Ingrese su nombre" [(ngModel)]="Cliente.nombre">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+            placeholder="Ingrese su email" [(ngModel)]="Cliente.contra">
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="enviar" class="btn btn-primary">
+        <input type="button" value="Cancelar" class="btn btn-danger" (click)='cancelar()'>
+    </div>
+</form>

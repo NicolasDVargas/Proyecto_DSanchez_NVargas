@@ -1,0 +1,26 @@
+<div>
+    <input type="button" value="Agregar dulce" class="btn btn-primary">
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Cantidad vendida</th>
+                    <th>Vendido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dulce of _inventarioService.Disponible">
+                    <td> {{dulce.nombre}}</td>
+                    <td> {{dulce.cantidad}}</td>
+                    <td> {{dulce.vendido}}</td>
+                    <td> {{dulce.vendido*dulce.costo}}</td>
+                </tr>
+            </tbody>
+        </div>
+    </div>
+</div>

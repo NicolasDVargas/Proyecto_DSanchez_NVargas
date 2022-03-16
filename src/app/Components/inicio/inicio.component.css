@@ -1,0 +1,28 @@
+.container{
+    background: paleturquoise;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    align-items: center;
+}
+
+.btn1:hover{
+    background-color: #f798e2; /* Green */
+    color: white;
+    border: 2px solid #a34caf;
+    border-radius: 8px;
+}
+
+.btn1{
+    border: 2px solid #a34caf;
+    border-radius: 8px;
+    margin-top:25px;
+    margin-bottom: 25px;
+    margin-left: 50%;
+}
+
+
+
+
+
