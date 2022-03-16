@@ -22,7 +22,7 @@ export class IniciarSesionComponent implements OnInit {
     for(let usu of this._clienteService.vertedero){
       if(usu.nombre==nombre && usu.contra==contra){
         this.router.navigateByUrl('./home');
-        localStorage.setItem(this.Cliente.nombre, this.Cliente.email);
+        localStorage.setItem(usu.nombre, usu.email);
         this.Cliente = new cliente();
         this.encontrado=true;
       }

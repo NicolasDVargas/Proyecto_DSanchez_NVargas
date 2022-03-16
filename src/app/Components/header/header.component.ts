@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
   home(){
     this.router.navigateByUrl('./home')
   }
-
+  inventario(){
+  this.router.navigateByUrl('./inventario')
+  }
   cerrarSesion(){
     localStorage.clear();
     this.router.navigateByUrl('');

@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Email</th>
+                    <th>Tipo</th>
                     <th>Cantidad vendida</th>
                     <th>Vendido</th>
                 </tr>
@@ -16,7 +16,7 @@
             <tbody>
                 <tr *ngFor="let dulce of _inventarioService.Disponible">
                     <td> {{dulce.nombre}}</td>
-                    <td> {{dulce.cantidad}}</td>
+                    <td> {{dulce.tipo}}</td>
                     <td> {{dulce.vendido}}</td>
                     <td> {{dulce.vendido*dulce.costo}}</td>
                 </tr>
