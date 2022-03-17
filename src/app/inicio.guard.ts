@@ -14,5 +14,4 @@ export class InicioGuard implements CanActivate {
     }
     return true;
   }
-  
 }

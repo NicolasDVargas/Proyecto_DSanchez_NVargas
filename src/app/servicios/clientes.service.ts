@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { cliente } from '../models/persona/persona.model';
+import { cliente } from '../models/cliente.model';
 
 
 @Injectable({

@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { Administrador } from '../models/admin.module';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminsService {
+
+  public administradores: Administrador[] = [];
+  public admin: Administrador;
+  constructor() { }
+
+  public agregar(nombre: string, contra: string){
+
+    this.admin=new Administrador("nicolas","12345");
+    this.administradores.push(this.admin);
+  }
+
+  public obtener(){
+    return this.administradores;
+  }
+}
