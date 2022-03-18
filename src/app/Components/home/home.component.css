@@ -2,3 +2,15 @@
     background: paleturquoise;
     height: 100vh;
 }
+
+.expositor{
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    background-color: rgb(90, 95, 97) ;
+    text-align: center;
+}
+
+.expositor:hover{
+    background-color: #4CAF50; /* Green */
+    color: white;
+}

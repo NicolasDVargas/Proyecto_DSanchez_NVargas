@@ -26,4 +26,4 @@ export class Dulce {
     }
 }
 
-export enum Tipo {Bombones, Choclate, Gomitas, Chicles, Mentolados, Importados}
+export enum Tipo {Bombones, Chocolate, Gomitas, Chicles, Mentolados, Importados}

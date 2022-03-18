@@ -12,12 +12,19 @@ export class AdminGuard implements CanActivate {
   public encontrado:boolean;
 
   canActivate(){
-        for(let usu of this._clienteService.vertedero){
-          if(usu instanceof cliente){
-            alert("usted no tiene permiso de entrar a esto");
-            return false;          
-          }
+    var usuario = localStorage.getItem('usuario');
+
+    if(usuario==null){
+      alert("Debe registrarse para tener acceso a esta parte de la tienda")
+      return false;
+    }else{
+      for(let usu of this._clienteService.vertedero){
+        if(usu.nombre==usuario){
+          alert("usted no tiene permiso de entrar a esto");
+          return false;          
         }
-        return true;
+      }
+    }      
+      return true;
     }
 }

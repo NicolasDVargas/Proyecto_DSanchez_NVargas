@@ -6,8 +6,10 @@ export class Administrador{
   nombre:string;
   contra:string;
 
-  constructor (nombre:string,contra:string){
+  crear (nombre:string,contra:string){
     this.nombre=nombre;
     this.contra=contra;
   }
+
+  constructor (){ }
 }

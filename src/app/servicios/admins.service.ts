@@ -13,7 +13,8 @@ export class AdminsService {
 
   public agregar(nombre: string, contra: string){
 
-    this.admin=new Administrador("nicolas","12345");
+    this.admin=new Administrador();
+    this.admin.crear(nombre,contra);
     this.administradores.push(this.admin);
   }
 

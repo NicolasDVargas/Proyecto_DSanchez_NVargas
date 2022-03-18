@@ -1,3 +1,9 @@
 <div class="container">
-
+    <tr *ngFor="let dulce of inventario" >
+        <div class="expositor" type="button" (click)="agregar(dulce)">      
+            <td>{{dulce.nombre}}</td>
+            <br>
+            <td>{{dulce.costo}}</td>
+        </div>      
+    </tr>
 </div>

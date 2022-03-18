@@ -14,4 +14,12 @@ export class InicioGuard implements CanActivate {
     }
     return true;
   }
+
+  canDeactivate(){
+    var usuario = localStorage.getItem('usuario');
+    if(usuario==null){
+      return false;
+    }
+    return true;
+  }
 }

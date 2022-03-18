@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Administrador } from 'src/app/models/admin.module';
+import { AdminsService } from 'src/app/servicios/admins.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, public _adminsService:AdminsService) { }
+  public admin: Administrador =new Administrador();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   iniciar(){
     this.router.navigateByUrl('./iniciar');

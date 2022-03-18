@@ -17,7 +17,7 @@ const routes = [
     {path: './home',component: HomeComponent},
     {path: './iniciar',component: IniciarSesionComponent},
     {path:'./registro',component: RegistrarseComponent},
-    {path:'./inventario',component: InventarioComponent,canActivy: [AdminGuard,InicioGuard]},
+    {path:'./inventario',component: InventarioComponent, canActivate: [AdminGuard]},
     {path: './**',component: InicioComponent}
 ];
 

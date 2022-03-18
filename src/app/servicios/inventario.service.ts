@@ -9,9 +9,11 @@ export class InventarioService {
   public Disponible: Dulce[] = [];
   constructor() { }
 
-  public agregar(articulo : Dulce){
+  public agregar(articulo : Dulce,primeraVez:boolean){
     this.Disponible.push(articulo)
-    alert("Se ha registrado correctamente");
+    if(!primeraVez){
+      alert("Se ha registrado correctamente");
+    }
   }
 
   public obtener(){
