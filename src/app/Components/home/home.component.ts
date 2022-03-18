@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit {
   constructor(public _InveService: InventarioService,_clienteService: ClienteService,_adminService: AdminsService) {
     this.inventario=_InveService.Disponible;
     
-    var contra = localStorage.getItem('user');
-    alert(contra);
 
     var nomUsuario = localStorage.getItem('user');
     for(let cli of _clienteService.vertedero){
@@ -44,9 +42,7 @@ export class HomeComponent implements OnInit {
         }
       }
     }
-    
   }
-
 
   ngOnInit(): void {
   }

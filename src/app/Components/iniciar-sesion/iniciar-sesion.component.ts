@@ -25,7 +25,7 @@ export class IniciarSesionComponent implements OnInit {
     for(let usu of this._clienteService.vertedero){
       if(usu.nombre==nombre && usu.contra==contra){
         this.router.navigateByUrl('./home');
-        localStorage.setItem(usu.nombre, usu.contra);
+        localStorage.setItem('user', usu.nombre);
         this.Cliente = new cliente();
         this.encontrado=true;
       }
@@ -34,7 +34,7 @@ export class IniciarSesionComponent implements OnInit {
     for(let adm of this._adminsService.administradores){
       if(adm.nombre==nombre && adm.contra==contra){
         this.router.navigateByUrl('./home');
-        localStorage.setItem(adm.nombre, adm.contra);
+        localStorage.setItem('user', adm.nombre);
         this.Admin = new Administrador();
         this.encontrado=true;
       }
