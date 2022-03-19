@@ -10,11 +10,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let dulce of _inventarioService.Disponible">
+                <tr *ngFor="let dulce of _inventarioService.Disponible" >
                     <td> {{dulce.nombre}}</td>
                     <td> {{dulce.tipo}}</td>
                     <td> {{dulce.vendido}}</td>
                     <td> {{dulce.vendido*dulce.costo}}</td>
+                    <input type="button" value="Detalles" (click)="detalles(dulce)">
                 </tr>
             </tbody>
         </div>
@@ -22,5 +23,5 @@
 </div>
 <br>
 <div>
-    <input type="button" value="Agregar dulce" class="btn btn-primary">
+    <input type="button" value="Agregar dulce" class="btn btn-primary" routerLink="./nuevoDulce" (click)="agregarNuevo()">
 </div>

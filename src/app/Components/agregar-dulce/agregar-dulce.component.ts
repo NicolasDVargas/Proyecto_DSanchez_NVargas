@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Dulce } from 'src/app/models/candy.model';
+import { InventarioService } from 'src/app/servicios/inventario.service';
 
 @Component({
   selector: 'app-agregar-dulce',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarDulceComponent implements OnInit {
 
-  constructor() { }
+  public dulce:Dulce = new Dulce();
+
+  constructor(public _inventService:InventarioService, public router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  registrar(){
+    this._inventService.agregar(this.dulce,false);
+    this.dulce=new Dulce;
+    this.router.navigateByUrl('./inventario');
+  }
+  cancelar(){
+    this.router.navigateByUrl('./inventario');
+    localStorage.clear();
   }
 
 }

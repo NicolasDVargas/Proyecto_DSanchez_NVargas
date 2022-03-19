@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">Navbar scroll</a>
+    <a class="navbar-brand" routerLink="./home" (click)="home()">Navbar scroll</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
       aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,26 +10,31 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" (click)='home()'>Home</a>
         </li>
-        <div *ngIf="show">
+        <div *ngIf="revizarAdmin()">
           <li class="nav-item">
             <a class="nav-link" (click)='inventario()'>inventario</a>
           </li>
         </div>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Perfil
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Ver perfil</a></li>
-            <li><a class="dropdown-item" href="#">Ver carrito</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrrar sesion</a></li>
-          </ul>
-        </li>
+        <div *ngIf="revizar() else elseBlock">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Perfil
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+              <li><a class="dropdown-item" href="#">Ver carrito</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrrar sesion</a></li>
+            </ul>
+          </li>
+        </div>
       </ul>
+      <ng-template #elseBlock>
+          <button class="btn btn-danger  my-2 my-lg-0" (click)='Inicio()'>Ingresar</button>
+      </ng-template>
     </div>
   </div>
 </nav>

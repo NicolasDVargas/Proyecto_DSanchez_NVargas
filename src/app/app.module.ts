@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { AgregarDulceComponent } from './components/agregar-dulce/agregar-dulce.component';
+import { DetalleDulceComponent } from './components/detalle-dulce/detalle-dulce.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AgregarDulceComponent } from './components/agregar-dulce/agregar-dulce.
     InicioComponent,
     IniciarSesionComponent,
     InventarioComponent,
-    AgregarDulceComponent
+    AgregarDulceComponent,
+    DetalleDulceComponent
   ],
   imports: [
     FormsModule,

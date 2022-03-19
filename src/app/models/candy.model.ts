@@ -3,17 +3,14 @@
 export class Dulce {
 
     nombre:String;
-    tipo: Tipo;
+    tipo: String;
     cantidad:number;
     vendido: number;
     costo:number;
+    imagen:String;
 
-    constructor (nombre: string, tipo:Tipo, cant:number, precio:number){
-        this.nombre=nombre
-        this.tipo= tipo;
-        this.cantidad=cant;
+    constructor (){
         this.vendido=0;
-        this.costo=precio;
     }
 
     generarFacturar(): string {
@@ -25,5 +22,3 @@ export class Dulce {
         vendido+=vendido;
     }
 }
-
-export enum Tipo {Bombones, Chocolate, Gomitas, Chicles, Mentolados, Importados}

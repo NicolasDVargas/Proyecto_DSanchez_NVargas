@@ -7,6 +7,7 @@ import { Dulce } from '../models/candy.model';
 export class InventarioService {
 
   public Disponible: Dulce[] = [];
+  public buscar: Dulce;
   constructor() { }
 
   public agregar(articulo : Dulce,primeraVez:boolean){

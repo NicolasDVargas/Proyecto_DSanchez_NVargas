@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class InicioGuard implements CanActivate {
   canActivate(){
 
-    var usuario = localStorage.getItem('usuario');
+    var usuario = localStorage.getItem('user');
     if(usuario==null){
       return false;
     }
@@ -16,7 +16,7 @@ export class InicioGuard implements CanActivate {
   }
 
   canDeactivate(){
-    var usuario = localStorage.getItem('usuario');
+    var usuario = localStorage.getItem('user');
     if(usuario==null){
       return false;
     }

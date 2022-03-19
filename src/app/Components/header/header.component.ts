@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminsService } from 'src/app/servicios/admins.service';
 import { ClienteService } from 'src/app/servicios/clientes.service';
 
 @Component({
@@ -9,36 +10,45 @@ import { ClienteService } from 'src/app/servicios/clientes.service';
 })
 export class HeaderComponent implements OnInit {
 
-  show:boolean= false;
-
-  constructor(public router: Router,public _clienteService:ClienteService) {
-    var nomUsuario = localStorage.getItem('user');
-    if(nomUsuario!=null){
-      for(let cli of this._clienteService.vertedero){
-        if(cli.nombre==nomUsuario){
-          this.show=false;
-          break;
-        }
-      }
-      this.show=true;
-    }else{
-      this.show=false;
-    }   
-   }
+  constructor(public router: Router, public _adminService: AdminsService) { }
 
   ngOnInit(): void {
   }
-  home(){
+
+  home() {
     this.router.navigateByUrl('./home')
   }
-  inventario(){
-  this.router.navigateByUrl('./inventario')
+  inventario() {
+    this.router.navigateByUrl('./inventario')
   }
-  cerrarSesion(){
+  cerrarSesion() {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
 
- 
+  revizarAdmin(): boolean {
+    var nomUsuario = localStorage.getItem('user');
+    if (nomUsuario != null) {
+      for (let adm of this._adminService.administradores) {
+        if (adm.nombre == nomUsuario) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  revizar(): boolean {
+    var nomUsuario = localStorage.getItem('user');
+    if (nomUsuario != null) {
+      return true;
+    }
+    return false;
+  }
+
+  Inicio(){
+    localStorage.clear();
+    this.router.navigateByUrl('');
+  }
 
 }

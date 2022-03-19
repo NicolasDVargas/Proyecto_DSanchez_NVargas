@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Dulce } from 'src/app/models/candy.model';
 import { InventarioService } from 'src/app/servicios/inventario.service';
+import { EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -9,9 +12,21 @@ import { InventarioService } from 'src/app/servicios/inventario.service';
 })
 export class InventarioComponent implements OnInit {
 
-  constructor(public _inventarioService: InventarioService) { }
+  public nombreEleg:string;
+  @Output() dulce: EventEmitter<Dulce>= new EventEmitter<Dulce>();
+
+
+  constructor(public _inventarioService: InventarioService, public route:Router) { }
 
   ngOnInit(): void {
+  }
+
+  detalles(dulce:Dulce){
+    this._inventarioService.buscar=dulce;
+    this.route.navigateByUrl("./DetalleDulce");
+  }
+  agregarNuevo(){
+    this.route.navigateByUrl("./nuevoDulce");
   }
 
 }

@@ -1,1 +1,28 @@
-<p>agregar-dulce works!</p>
+<form>
+    <div class="form-group">
+        <label for="Nombre-Dulce">Nombre</label>
+        <input [(ngModel)]="dulce.nombre" name="nombre" type="text" class="form-control" id="Nombre-Dulce" placeholder="Ingrese aca el nombre del dulce" >
+    </div>
+    <div class="form-group">
+        <label for="Cantidad-dulces">Cantidad/Disponibilidad en inventario</label>
+        <input [(ngModel)]="dulce.cantidad"  name="cantidad" type="number" class="form-control" id="CantidadDulce" placeholder="Ingrese aca el nombre del dulce" [(ngModel)]="dulce.cantidad">
+    </div>
+    <div class="form-group">
+        <label for="CostoDulce">Costo</label>
+        <input  [(ngModel)]="dulce.costo" name="cosoto" type="number" class="form-control" id="CostoDulce" placeholder="Ingrese aca el nombre del dulce">
+    </div>
+    <div class="form-group">
+        <label for="Categoria-Dulce">Categoria</label>
+        <select  [(ngModel)]="dulce.tipo"  name="tipo" class="form-control" id="Categoria-Dulce" >
+            <option>Bombones</option>
+            <option>Chocolate</option>
+            <option>Gomitas</option>
+            <option>Chicles</option>
+            <option>Importados</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)="registrar()">Registrar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+    </div>
+</form>

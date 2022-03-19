@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Administrador } from './models/admin.module';
-import { Dulce, Tipo } from './models/candy.model';
+import { Dulce} from './models/candy.model';
 import { AdminsService } from './servicios/admins.service';
 import { InventarioService } from './servicios/inventario.service';
 
@@ -16,15 +16,19 @@ export class AppComponent {
   constructor(_adminService:AdminsService, _inventarioService: InventarioService){
 
     _adminService.agregar("Nicolas","12345");
-    var dulce1 : Dulce = new Dulce("Caja de Pocky",Tipo.Importados,50,10000);
+    var dulce1 : Dulce = new Dulce()
+    dulce1.nombre="Caja de Pocky";
+    dulce1.tipo="Importados";
+    dulce1.cantidad=50;
+    dulce1.costo=10000;
     _inventarioService.agregar(dulce1,true);
-    var dulce2 : Dulce = new Dulce("Chocolatina jet",Tipo.Chocolate,50,250);
+    var dulce2 : Dulce = new Dulce();
+    dulce2.nombre="Chocolatina jet";
+    dulce2.tipo="Chocolate";
+    dulce2.cantidad=50;
+    dulce2.costo=500;
     _inventarioService.agregar(dulce2,true);
-    var dulce3: Dulce = new Dulce("Cajita trident",Tipo.Chicles,50,5800);
-    _inventarioService.agregar(dulce3,true);
-    var dulce: Dulce = new Dulce("Ferrero Rocher x6",Tipo.Bombones,50,10000);
-    _inventarioService.agregar(dulce,true);
-
+    
     localStorage.clear();
   }
   
