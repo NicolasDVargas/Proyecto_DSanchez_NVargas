@@ -11,6 +11,7 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { AgregarDulceComponent } from './components/agregar-dulce/agregar-dulce.component';
 import { DetalleDulceComponent } from './components/detalle-dulce/detalle-dulce.component';
+import { EditarDulceComponent } from './Components/editar-dulce/editar-dulce.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DetalleDulceComponent } from './components/detalle-dulce/detalle-dulce.
     IniciarSesionComponent,
     InventarioComponent,
     AgregarDulceComponent,
-    DetalleDulceComponent
+    DetalleDulceComponent,
+    EditarDulceComponent
   ],
   imports: [
     FormsModule,

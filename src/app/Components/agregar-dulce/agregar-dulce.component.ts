@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dulce } from 'src/app/models/candy.model';
 import { InventarioService } from 'src/app/servicios/inventario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-dulce',

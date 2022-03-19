@@ -21,12 +21,14 @@ export class AppComponent {
     dulce1.tipo="Importados";
     dulce1.cantidad=50;
     dulce1.costo=10000;
+    dulce1.imagen="../assets/images/products/GUEST_d0eb439c-3f20-4eb7-be83-471c10b67778.jpg";
     _inventarioService.agregar(dulce1,true);
     var dulce2 : Dulce = new Dulce();
     dulce2.nombre="Chocolatina jet";
     dulce2.tipo="Chocolate";
     dulce2.cantidad=50;
     dulce2.costo=500;
+    dulce2.imagen="../assets/images/products/Chocolatina-Jet-x-12g-1000x798-1.jpg"
     _inventarioService.agregar(dulce2,true);
     
     localStorage.clear();

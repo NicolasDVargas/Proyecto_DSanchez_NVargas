@@ -12,13 +12,17 @@ export class AdminsService {
   constructor() { }
 
   public agregar(nombre: string, contra: string){
-
     this.admin=new Administrador();
     this.admin.crear(nombre,contra);
     this.administradores.push(this.admin);
+    this.admin=new Administrador;
   }
 
   public obtener(){
     return this.administradores;
+  }
+
+  public limpiar(){
+    this.admin=new Administrador;
   }
 }

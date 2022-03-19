@@ -22,7 +22,7 @@ const routes = [
     {path:'./inventario',component: InventarioComponent,},
     {path:'./nuevoDulce',component: AgregarDulceComponent,},
     {path:'./DetalleDulce',component: DetalleDulceComponent,},
-    {path: './**',component: InicioComponent}
+    {path: './**',component: HomeComponent}
 ];
 
 @NgModule(

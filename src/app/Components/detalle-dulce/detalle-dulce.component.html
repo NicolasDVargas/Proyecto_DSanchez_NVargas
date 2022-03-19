@@ -1,8 +1,18 @@
 <div class="container">
     <h1>{{dulce.nombre}}</h1>
+    <img src={{dulce.imagen}}>
     <p id="Categoria">{{dulce.tipo}}</p>
     <label></label>
     <p id="costo">{{dulce.costo}}</p>
 </div>
-<input type="button" value="Editar" class="btn btn-primary" (clicl)="editar()">
-<input type="button" value="Eliminar" class="btn btn-danger" (click)="eliminar()">
+<div *ngFor="let usu of _adminsService.administradores">
+        <div *ngIf="usu.nombre==admin.nombre else elseBlock">
+            <input type="button" value="Editar" class="btn btn-primary" (clicl)="editar()">
+            <input type="button" value="Eliminar" class="btn btn-danger" (click)="eliminar()">
+        </div>
+
+        <ng-template #elseBlock>
+            <button type="button" class="btn btn-primary" (click)="agregarCarrito()">Comprar</button>
+            <button type="button" class="btn btn-danger" (click)="volverHome()">Retroceder</button>
+        </ng-template>
+</div>

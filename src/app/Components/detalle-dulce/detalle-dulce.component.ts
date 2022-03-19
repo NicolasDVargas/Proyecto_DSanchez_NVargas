@@ -1,6 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Administrador } from 'src/app/models/admin.module';
 import { Dulce } from 'src/app/models/candy.model';
+import { cliente } from 'src/app/models/cliente.model';
+import { AdminsService } from 'src/app/servicios/admins.service';
+import { ClienteService } from 'src/app/servicios/clientes.service';
 import { InventarioService } from 'src/app/servicios/inventario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-dulce',
@@ -9,20 +15,55 @@ import { InventarioService } from 'src/app/servicios/inventario.service';
 })
 export class DetalleDulceComponent implements OnInit {
 
-  public dulce:Dulce=new Dulce;
-  
-  constructor(public _inventService:InventarioService) { 
-    this.dulce=_inventService.buscar;
+  public dulce: Dulce = new Dulce;
+  public Cliente: cliente;
+  public admin: Administrador;
+
+  constructor(public _inventService: InventarioService, public route: Router, public _clienteService: ClienteService, public _adminsService: AdminsService) {
+    this.dulce = _inventService.buscar;
+    this.Cliente = _clienteService.actual;
+    this.admin = _adminsService.admin;
   }
 
   ngOnInit(): void {
   }
 
-  editar(){
+  volverHome() {
+    this.route.navigateByUrl("./home");
+  }
+
+  agregarCarrito() {
+    var nomUsuario = localStorage.getItem('user');
+    if (nomUsuario != null) {
+      alert("crea la funcion perezoso de mierda");
+    } else {
+      Swal.fire('Debes estar logeado para poder agregar cosas a tu carrito');
+    }
+  }
+
+  editar() {
 
   }
 
-  eliminar(){
-    
+
+  eliminar() {
+    Swal.fire({
+      title: 'Esta seguro que desea borrar este elemento de la base de datos?',
+      text: 'Una vez eliminado no se podra recuperar la información!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this._inventService.elimiar();
+        Swal.fire(
+          'Borrado!',
+          'Se ha elimiado correctamente el dulce de la base de datos.',
+          'success'
+        )
+        this.route.navigateByUrl("./inventario");
+      }
+    })
   }
 }

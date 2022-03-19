@@ -8,14 +8,19 @@ import { cliente } from '../models/cliente.model';
 export class ClienteService {
 
   public vertedero: cliente[] = [];
+  public actual: cliente;
   constructor() { }
 
   public agregar(Usuario : cliente){
     this.vertedero.push(Usuario)
-    alert("Se ha registrado correctamente");
   }
 
   public obtener(){
     return this.vertedero;
+  }
+
+
+  public limpiar(){
+    this.actual=new cliente();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd, Router } from '@angular/router';
 import { Administrador } from 'src/app/models/admin.module';
 import { Dulce } from 'src/app/models/candy.model';
 import { cliente } from 'src/app/models/cliente.model';
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   public encontrado: boolean;
 
 
-  constructor(public _InveService: InventarioService,_clienteService: ClienteService,_adminService: AdminsService) {
+  constructor(public _InveService: InventarioService,_clienteService: ClienteService,_adminService: AdminsService,public route :Router) {
     this.inventario=_InveService.Disponible;
     
 
@@ -48,8 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   agregar(compra:Dulce){
-    if(this.cliente){
-      this.cliente.agregar(compra);
-    }
+    this._InveService.buscar=compra;
+    this.route.navigateByUrl("./DetalleDulce")
   }
 }

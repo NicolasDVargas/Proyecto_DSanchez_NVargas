@@ -18,9 +18,4 @@ export class InicioComponent implements OnInit {
   iniciar(){
     this.router.navigateByUrl('./iniciar');
   }
-
-  registro(){
-    this.router.navigateByUrl('./registro');
-  }
-
 }

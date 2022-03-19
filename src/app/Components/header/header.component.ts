@@ -10,7 +10,7 @@ import { ClienteService } from 'src/app/servicios/clientes.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public router: Router, public _adminService: AdminsService) { }
+  constructor(public router: Router, public _adminService: AdminsService, public _clienteService:ClienteService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
   }
   cerrarSesion() {
     localStorage.clear();
+    this._adminService.limpiar();
+    this._clienteService.limpiar();
     this.router.navigateByUrl('');
   }
 
