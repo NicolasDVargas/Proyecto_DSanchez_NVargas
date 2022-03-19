@@ -42,7 +42,7 @@ export class DetalleDulceComponent implements OnInit {
   }
 
   editar() {
-
+    this.route.navigateByUrl("./EditarDulce");
   }
 
 

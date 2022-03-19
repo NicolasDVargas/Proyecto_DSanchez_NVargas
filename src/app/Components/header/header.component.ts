@@ -40,17 +40,29 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
+  carrito(){
+
+  }
+
+  perfil(){
+    
+  }
+
   revizar(): boolean {
     var nomUsuario = localStorage.getItem('user');
     if (nomUsuario != null) {
-      return true;
+      for (let usu of this._clienteService.vertedero) {
+        if (usu.nombre == nomUsuario) {
+          return true;
+        }
+      }
     }
     return false;
   }
 
   Inicio(){
     localStorage.clear();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('./iniciar');
   }
 
 }

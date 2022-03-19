@@ -1,58 +1,47 @@
-<!--<form (ngSubmit)="buscar(Cliente.nombre, Cliente.contra)">
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="txt-Nombre" id="txtNombre" placeholder="Ingrese su nombre" [(ngModel)]="Cliente.nombre">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-            placeholder="Ingrese su email" [(ngModel)]="Cliente.contra">
-    </div>
-    <div class="mb-3">
-        <input type="submit" value="enviar" class="btn btn-primary">
-        <input type="button" value="Cancelar" class="btn btn-danger" (click)='cancelar()'>
-    </div>
-</form>
--->
-<body>
-<div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#">
-            <h1>Create Account</h1>
-            <span>Use your email for registration</span>
-            <input type="text" placeholder="Name" [(ngModel)]="Cliente.nombre" name="nombre" />
-            <input type="email" placeholder="Email" [(ngModel)]="Cliente.email" name="email" />
-            <input type="password" placeholder="Password" [(ngModel)]="Cliente.contra" name="contra" />
-            <button (click)="registrar(Cliente)">Sign Up</button>
-        </form>
-    </div>
 
-    <div class="form-container sign-in-container">
-        <form action="#">
-            <h1>Sign in</h1>
-            <span>Use your account</span>
-            <input type="text" placeholder="Nombre" [(ngModel)]="Cliente.nombre" name="nombre" />
-            <input type="password" placeholder="Password" [(ngModel)]="Cliente.contra" name="contra" />
-            <button (click)="buscar(Cliente.nombre,Cliente.contra)">Sign In</button>
-        </form>
-    </div>
 
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label" [(ngModel)]="Cliente.nombre" name="nombre">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password" [(ngModel)]="Cliente.contra" name="contra">
+                </div>
+                <div class="hr"></div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign In" (click)="buscar(Cliente.nombre,Cliente.contra)">
+                </div>             
             </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+
+
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input"  [(ngModel)]="Cliente.nombre" name="nombre">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password"  [(ngModel)]="Cliente.contra" name="contra">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Email Address</label>
+                    <input id="pass" type="text" class="input"  [(ngModel)]="Cliente.email" name="email">
+                </div>
+                <div class="hr"></div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign Up" (click)="registrar(Cliente)">
+                </div>      
+                <div class="foot-lnk">
+                    <label for="tab-1">Already Member?</label>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-</body>

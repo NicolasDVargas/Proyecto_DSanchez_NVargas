@@ -39,7 +39,6 @@ export class IniciarSesionComponent implements OnInit {
 
     for(let adm of this._adminsService.administradores){
       if(adm.nombre==nombre && adm.contra==contra){
-        Swal.fire('Bienvenido señor@ '+ nombre,'Has iniciado sesión exitosamente como administrador@','success')
         localStorage.setItem('user', adm.nombre);
         this.Admin = new Administrador();
         this._adminsService.admin=adm;
@@ -63,21 +62,26 @@ export class IniciarSesionComponent implements OnInit {
   }
 
   registrar(Cliente:cliente){
+    var yaExiste:boolean=false;
 
     for(let cli of this._clienteService.vertedero){
+
       if(cli.nombre==Cliente.nombre){
         Swal.fire({  
           icon: 'error',  
           title: 'Oops...',  
           text: 'Ese ya existe!',  
         }) 
-      }else{
-        this._clienteService.agregar(this.Cliente);
-        localStorage.setItem('user', this.Cliente.nombre);
-        this.Cliente = new cliente();
-        this._clienteService.actual=cli;
-        this.router.navigateByUrl('./home');
+        yaExiste=true;
       }
+    }
+    if(!yaExiste){
+      this._clienteService.agregar(this.Cliente);
+      localStorage.setItem('user', this.Cliente.nombre);
+      Swal.fire('Bienvenido '+ Cliente.nombre,'El registro a sido exitoso','success')
+      this._clienteService.actual=Cliente;
+      this.Cliente = new cliente();
+      this.router.navigateByUrl('./home');
     }
   }
 

@@ -18,14 +18,16 @@ export class AgregarDulceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
   registrar(){
+    debugger;
     this._inventService.agregar(this.dulce,false);
     this.dulce=new Dulce;
     this.router.navigateByUrl('./inventario');
   }
   cancelar(){
     this.router.navigateByUrl('./inventario');
-    localStorage.clear();
   }
 
 }

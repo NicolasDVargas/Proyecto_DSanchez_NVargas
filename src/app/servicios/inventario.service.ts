@@ -29,8 +29,9 @@ export class InventarioService {
   }
 
   public editar(actualizacion:Dulce){
+    debugger;
     this.Disponible.forEach((dulce,index)=>{
-      if(dulce.nombre==actualizacion.nombre) this.Disponible.splice(index,1,actualizacion);
+      if(dulce.nombre==this.buscar.nombre) this.Disponible.splice(index,1,actualizacion);
     });
   }
 }

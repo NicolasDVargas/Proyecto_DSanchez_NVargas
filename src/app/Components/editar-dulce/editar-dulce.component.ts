@@ -10,7 +10,7 @@ import { InventarioService } from 'src/app/servicios/inventario.service';
 })
 export class EditarDulceComponent implements OnInit {
 
-  public dulce:Dulce;
+  public dulce:Dulce = new Dulce;
   constructor(public _inventService:InventarioService, public router:Router) { }
 
   ngOnInit(): void {
@@ -18,6 +18,8 @@ export class EditarDulceComponent implements OnInit {
 
   Editar(){
     this._inventService.editar(this.dulce);
+    this._inventService.buscar=this.dulce;
+    this.router.navigateByUrl('./inventario')
   }
 
   cancelar(){

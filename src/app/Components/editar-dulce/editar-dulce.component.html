@@ -1,19 +1,19 @@
 <form>
     <div class="form-group">
         <label for="Nombre-Dulce">Nombre</label>
-        <input [(ngModel)]="dulce.nombre" name="nombre" type="text" class="form-control" id="Nombre-Dulce" placeholder="Ingrese aca el nombre del dulce" >
+        <input [(ngModel)]="dulce.nombre" name="nombre" type="text" class="form-control" id="Nombre-Dulce" placeholder={{_inventService.buscar.nombre}} >
     </div>
     <div class="form-group">
         <label for="Cantidad-dulces">Cantidad/Disponibilidad en inventario</label>
-        <input [(ngModel)]="dulce.cantidad"  name="cantidad" type="number" class="form-control" id="CantidadDulce" placeholder="Ingrese aca el nombre del dulce" [(ngModel)]="dulce.cantidad">
+        <input [(ngModel)]="dulce.cantidad"  name="cantidad" type="number" class="form-control" id="CantidadDulce" placeholder={{_inventService.buscar.cantidad}} [(ngModel)]="dulce.cantidad">
     </div>
     <div class="form-group">
         <label for="CostoDulce">Costo</label>
-        <input  [(ngModel)]="dulce.costo" name="cosoto" type="number" class="form-control" id="CostoDulce" placeholder="Ingrese aca el nombre del dulce">
+        <input  [(ngModel)]="dulce.costo" name="cosoto" type="number" class="form-control" id="CostoDulce" placeholder={{_inventService.buscar.costo}}>
     </div>
     <div class="form-group">
         <label for="Categoria-Dulce">Categoria</label>
-        <select  [(ngModel)]="dulce.tipo"  name="tipo" class="form-control" id="Categoria-Dulce" >
+        <select  [(ngModel)]="dulce.tipo"  name="tipo" class="form-control" id="Categoria-Dulce">
             <option>Bombones</option>
             <option>Chocolate</option>
             <option>Gomitas</option>
@@ -22,8 +22,12 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="vendidoDulce">Vendido</label>
+        <input  [(ngModel)]="dulce.vendido" name="vendido" type="number" class="form-control" id="vendidoDulce" placeholder={{_inventService.buscar.vendido}}>
+    </div>
+    <div class="form-group">
         <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <input type="file" class="form-control-file" id="exampleFormControlFile1"  [(ngModel)]="dulce.imagen">
       </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary" (click)="Editar()">Registrar</button>

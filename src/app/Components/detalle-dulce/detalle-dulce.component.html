@@ -7,7 +7,7 @@
 </div>
 <div *ngFor="let usu of _adminsService.administradores">
         <div *ngIf="usu.nombre==admin.nombre else elseBlock">
-            <input type="button" value="Editar" class="btn btn-primary" (clicl)="editar()">
+            <input type="button" value="Editar" class="btn btn-primary" (click)="editar()">
             <input type="button" value="Eliminar" class="btn btn-danger" (click)="eliminar()">
         </div>
 

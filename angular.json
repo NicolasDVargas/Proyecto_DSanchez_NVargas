@@ -30,7 +30,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/JS/login.js"
+              
             ]
           },
           "configurations": {
