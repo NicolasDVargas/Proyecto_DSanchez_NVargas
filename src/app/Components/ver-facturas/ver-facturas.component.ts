@@ -8,10 +8,9 @@ import { LaFacturaComponent } from '../la-factura/la-factura.component';
 @Component({
   selector: 'app-ver-facturas',
   templateUrl: './ver-facturas.component.html',
-  styleUrls: ['./ver-facturas.component.css']
+  styleUrls: ['./ver-facturas.component.css'],
 })
 export class VerFacturasComponent implements OnInit {
-  @ViewChild(LaFacturaComponent) hijo: LaFacturaComponent;
   public factura : Facturas ;
   public Usuario : cliente = new cliente;
   constructor(public router:Router,public _clienteService: ClienteService) {
@@ -23,8 +22,7 @@ export class VerFacturasComponent implements OnInit {
   }
 
   elegir(factura:Facturas){
-    this.hijo.recibirFactura(factura);
+    localStorage.setItem('id',factura.id.toString());
     this.router.navigateByUrl("./laFactura");
   }
-
 }

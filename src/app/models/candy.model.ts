@@ -1,5 +1,3 @@
-
-
 export class Dulce {
 
     nombre:String;
