@@ -25,7 +25,10 @@ export class IniciarSesionComponent implements OnInit {
   }
 
   buscar(nombre: string, contra: string) {
+<<<<<<< HEAD
     debugger;
+=======
+>>>>>>> master
     if (nombre == "" || nombre == null) {
       Swal.fire({
         icon: 'error',
@@ -112,6 +115,7 @@ export class IniciarSesionComponent implements OnInit {
                 text: 'Ese ya existe!',
               })
               yaExiste = true;
+<<<<<<< HEAD
             }
           }
           for (let adm of this._adminsService.administradores) {
@@ -122,6 +126,19 @@ export class IniciarSesionComponent implements OnInit {
                 text: 'Ese ya existe!',
               })
               yaExiste = true;
+=======
+            } else {
+              for (let adm of this._adminsService.administradores) {
+                if (adm.nombre == Cliente.nombre && adm.contra == Cliente.contra) {
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ese ya existe!',
+                  })
+                  yaExiste = true;
+                }
+              }
+>>>>>>> master
             }
           }
           if (!yaExiste) {
