@@ -10,13 +10,28 @@ import { InventarioService } from 'src/app/servicios/inventario.service';
 })
 export class EditarDulceComponent implements OnInit {
 
-  public dulce:Dulce = new Dulce;
+  public dulce:Dulce = new Dulce();
   constructor(public _inventService:InventarioService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
   Editar(){
+    if(this.dulce.nombre==null){
+      this.dulce.nombre=this._inventService.buscar.nombre;
+    }
+    if(this.dulce.cantidad==null){
+      this.dulce.cantidad=this._inventService.buscar.cantidad;
+    }
+    if(this.dulce.costo==null){
+      this.dulce.costo=this._inventService.buscar.costo;
+    }
+    if(this.dulce.tipo==null){
+      this.dulce.tipo=this._inventService.buscar.tipo;
+    }
+    if(this.dulce.vendido==null){
+      this.dulce.vendido=this._inventService.buscar.vendido;
+    }
     this._inventService.editar(this.dulce);
     this._inventService.buscar=this.dulce;
     this.router.navigateByUrl('./inventario')
