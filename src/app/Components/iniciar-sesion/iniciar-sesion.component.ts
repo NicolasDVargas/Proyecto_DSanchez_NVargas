@@ -76,6 +76,7 @@ export class IniciarSesionComponent implements OnInit {
       }
     }
     if(!yaExiste){
+      this.Cliente.generarFactura();
       this._clienteService.agregar(this.Cliente);
       localStorage.setItem('user', this.Cliente.nombre);
       Swal.fire('Bienvenido '+ Cliente.nombre,'El registro a sido exitoso','success')

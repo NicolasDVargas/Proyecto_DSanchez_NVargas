@@ -13,10 +13,6 @@ export class Dulce {
         this.vendido=0;
     }
 
-    generarFacturar(): string {
-        return "hola "+ this.nombre;
-    }
-
     Retirar(vendido:number){
         this.cantidad=this.cantidad-vendido;
         vendido+=vendido;

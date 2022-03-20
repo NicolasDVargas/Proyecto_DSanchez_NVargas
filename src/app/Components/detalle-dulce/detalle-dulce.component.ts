@@ -18,6 +18,7 @@ export class DetalleDulceComponent implements OnInit {
   public dulce: Dulce = new Dulce;
   public Cliente: cliente;
   public admin: Administrador;
+  public cant: number;
 
   constructor(public _inventService: InventarioService, public route: Router, public _clienteService: ClienteService, public _adminsService: AdminsService) {
     this.dulce = _inventService.buscar;
@@ -35,10 +36,15 @@ export class DetalleDulceComponent implements OnInit {
   agregarCarrito() {
     var nomUsuario = localStorage.getItem('user');
     if (nomUsuario != null) {
-      alert("crea la funcion perezoso de mierda");
+      this._clienteService.actual.carrito.push(this._inventService.buscar);     
+      this._clienteService.actual.agregarFactura(this._inventService.buscar);
+      
+      Swal.fire('Agregado!','Se ha agregado a tu carrito.','success')
+
     } else {
       Swal.fire('Debes estar logeado para poder agregar cosas a tu carrito');
     }
+
   }
 
   editar() {

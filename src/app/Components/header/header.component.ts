@@ -41,11 +41,11 @@ export class HeaderComponent implements OnInit {
   }
 
   carrito(){
-
+    this.router.navigateByUrl("./carrito")
   }
 
   perfil(){
-    
+    this.router.navigateByUrl("./perfil")
   }
 
   revizar(): boolean {
